@@ -1,0 +1,16 @@
+
+    {% comment %} <div class='col-sm-12'>
+        <form class="form-inline" method='GET' action='{% url "tweet:list" %}'>
+            <div class="form-group">
+                <input class="form-control" type="text" name='q' placeholder='Search' value='{{ request.GET.q }}' />
+                </div>
+            <input class="btn btn-outline-success" type='submit' value='Search' />
+        </form>
+    </div> {% endcomment %}
+
+
+<form class="form-inline d-flex" method='GET' action='{% url "tweet:list" %}'>
+    <input class="form-control mr-4" style="margin-right: 10px;" type="text" name='q' placeholder="Search" value='{{ request.GET.q }}' aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    <div class='row'>
+        <div class='col-sm-3 col-xs-12' style='background-color:red;'>
+            <h1> {{ request.user }} </h1>
+        </div>
+
+        <div class='col-sm-9'>
+            {% for object in object_list %}
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            {% if object.image %}
+                                <img class="align-self-start mr-3" src="..." alt="Generic placeholder image">
+                            {% endif %}
+                        </a>
+                    </div> 
+
+
+                    <div class="media-body">
+                    
+                        {{ object.content }}<br/>
+                        via {{ object.user }} | {{ object.timestamp|timesince }} ago | <a href='{{object.get_absolute_url}}'>View</a>
+                            
+                    </div>
+                </div>
+                <hr/>
+                
+            {% empty %}
+                    {% if request.GET.q %}
+                        <p>No Tweets found</p>
+                    {% else %}
+                        <p>No Tweets yet</p>
+                    {% endif %}
+                    
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock content %}

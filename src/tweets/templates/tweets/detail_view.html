@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %} 
+
+<div class='row'>
+    <div class='col-sm-1' style='bg-color:red;'>
+        {{ object.content }} </br>
+    </div>
+    {{ object.user }} </br>
+    {{ object.timestamp|timesince }}
+
+</div>
+
+{% endblock content %}   
